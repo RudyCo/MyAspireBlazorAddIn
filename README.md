@@ -8,5 +8,6 @@ This sample was created from [.NET Aspire Starter](https://learn.microsoft.com/e
 
 # Issue
 Debug session starts and after one minute, breaks with the 2 following error messages :
+
 ![Error 1](error_1.png)
 ![Error 2](error_2.png)
