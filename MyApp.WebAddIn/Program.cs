@@ -1,5 +1,5 @@
-using MyApp.Web;
-using MyApp.Web.Components;
+using MyApp.WebAddIn;
+using MyApp.WebAddIn.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

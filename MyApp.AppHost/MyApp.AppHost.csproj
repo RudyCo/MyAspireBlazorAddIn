@@ -11,7 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyApp.ApiService\MyApp.ApiService.csproj" />
-    <ProjectReference Include="..\MyApp.Web\MyApp.Web.csproj" />
+    <ProjectReference Include="..\MyApp.WebAddIn\MyApp.WebAddIn.csproj" />
+    <ProjectReference Include="..\MyApp.WebApp\MyApp.WebApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

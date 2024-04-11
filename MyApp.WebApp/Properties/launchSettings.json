@@ -4,9 +4,8 @@
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "https://localhost:7570",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7071",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

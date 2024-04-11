@@ -1,4 +1,4 @@
-namespace MyApp.Web;
+namespace MyApp.WebApp;
 
 public class WeatherApiClient(HttpClient httpClient)
 {

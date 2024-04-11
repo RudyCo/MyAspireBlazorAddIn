@@ -21,7 +21,7 @@
     <ProjectMode>OfficeApp</ProjectMode>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <MinimumOfficeToolsVersion>14.0</MinimumOfficeToolsVersion>
-    <CoreWebProject>..\MyApp.Web\MyApp.Web.csproj</CoreWebProject>
+    <CoreWebProject>..\MyApp.WebAddIn\MyApp.WebAddIn.csproj</CoreWebProject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +43,10 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="excel-blazor-sideloaderManifest\SharePointProjectItem.spdata">
+    <None Include="MyApp.Sideloader\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{05819d6c-c887-44c3-83b0-d47f340dbad1}</SharePointProjectItemId>
     </None>
-    <Content Include="excel-blazor-sideloaderManifest\excel-blazor-sideloader.xml">
+    <Content Include="MyApp.Sideloader\MyApp.Sideloader.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
   </ItemGroup>
