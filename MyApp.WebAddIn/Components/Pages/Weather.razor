@@ -39,12 +39,3 @@ else
     </table>
     <button type="button" class="btn btn-primary" @onclick="HelloButton">Hello world!</button>
 }
-
-@code {
-    private WeatherForecast[]? forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await WeatherApi.GetWeatherAsync();
-    }
-}

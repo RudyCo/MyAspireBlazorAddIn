@@ -11,4 +11,8 @@
     <ProjectReference Include="..\MyApp.ServiceDefaults\MyApp.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.JSInterop" Version="8.0.4" />
+  </ItemGroup>
+
 </Project>

@@ -5,9 +5,16 @@ namespace MyApp.WebAddIn.Components.Pages
 {
     public partial class Weather
     {
+        private WeatherForecast[]? forecasts;
+
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
         public IJSObjectReference JSModule { get; set; } = default!;
+
+        protected override async Task OnInitializedAsync()
+        {
+            forecasts = await WeatherApi.GetWeatherAsync();
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
