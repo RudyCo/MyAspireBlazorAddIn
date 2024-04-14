@@ -1,4 +1,5 @@
-using MyApp.AddIn.Client.Pages;
+using MyApp.AddIn;
+using MyApp.AddIn.Client.Services;
 using MyApp.AddIn.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Register the server-side weather service
+builder.Services.AddSingleton<IWeatherService, ServerWeatherService>();
 
 var app = builder.Build();
 
@@ -29,5 +33,8 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(MyApp.AddIn.Client._Imports).Assembly);
+
+// Minimal API for obtaining weather data from /api/weather
+app.MapGet("/api/weather", (IWeatherService weatherService) => weatherService.GetWeather());
 
 app.Run();

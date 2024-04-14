@@ -1,34 +1,38 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using MyApp.AddIn.Client.Models;
+using MyApp.AddIn.Client.Services;
 
 namespace MyApp.AddIn.Client.Pages
 {
     public partial class Weather : ComponentBase
     {
-        private WeatherForecast[]? forecasts;
 
+        [Inject]
+        public PersistentComponentState PersistentComponentState { get; set; } = default!;
+
+
+        [Inject]
+        public IWeatherService WeatherService { get; set; } = default!;
+
+        private WeatherForecast[]? forecasts;
+        private PersistingComponentStateSubscription persistingSubscription;
         protected override async Task OnInitializedAsync()
         {
-            // Simulate asynchronous loading to demonstrate a loading indicator
-            await Task.Delay(500);
+            persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
 
-            var startDate = DateOnly.FromDateTime(DateTime.Now);
-            var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-            forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            if (!PersistentComponentState.TryTakeFromJson<WeatherForecast[]>(nameof(forecasts), out forecasts))
             {
-                Date = startDate.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = summaries[Random.Shared.Next(summaries.Length)]
-            }).ToArray();
+                forecasts = await WeatherService.GetWeather();
+            }
+        }
+        private Task PersistData()
+        {
+            PersistentComponentState.PersistAsJson(nameof(forecasts), forecasts);
+
+            return Task.CompletedTask;
         }
 
-        private class WeatherForecast
-        {
-            public DateOnly Date { get; set; }
-            public int TemperatureC { get; set; }
-            public string? Summary { get; set; }
-            public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-        }
 
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
@@ -45,7 +49,7 @@ namespace MyApp.AddIn.Client.Pages
         private async Task CopyButton()
         {
             if (forecasts is null) return;
-            var res = forecasts.Select(x => new object[] { x.Date, x.TemperatureC, x.TemperatureF, x.Summary??"None" }).ToArray();
+            var res = forecasts.Select(x => new object[] { x.Date, x.TemperatureC, x.TemperatureF, x.Summary ?? "None" }).ToArray();
             await JSModule.InvokeVoidAsync("copyButton", (object)res);
         }
     }
