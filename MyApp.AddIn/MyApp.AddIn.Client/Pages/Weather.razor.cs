@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-
 namespace MyApp.AddIn.Client.Pages
 {
     public partial class Weather : ComponentBase
@@ -29,6 +28,26 @@ namespace MyApp.AddIn.Client.Pages
             public int TemperatureC { get; set; }
             public string? Summary { get; set; }
             public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        }
+
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; } = default!;
+        public IJSObjectReference JSModule { get; set; } = default!;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Weather.razor.js");
+            }
+        }
+
+        /// <summary>
+        /// Basic function to invoke inserting `Hello world!` text.
+        /// </summary>
+        private async Task CopyButton()
+        {
+            await JSModule.InvokeVoidAsync("copyButton", forecasts);
         }
     }
 }

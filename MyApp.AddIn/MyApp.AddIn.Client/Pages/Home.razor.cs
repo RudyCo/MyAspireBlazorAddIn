@@ -8,7 +8,7 @@ namespace MyApp.AddIn.Client.Pages
     /// <summary>
     /// Starter class to demo how to insert `Hello world!` text.
     /// </summary>
-    public partial class Home
+    public partial class Home : ComponentBase
     {
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
