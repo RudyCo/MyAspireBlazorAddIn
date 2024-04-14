@@ -42,12 +42,11 @@ namespace MyApp.AddIn.Client.Pages
             }
         }
 
-        /// <summary>
-        /// Basic function to invoke inserting `Hello world!` text.
-        /// </summary>
         private async Task CopyButton()
         {
-            await JSModule.InvokeVoidAsync("copyButton", forecasts);
+            if (forecasts is null) return;
+            var res = forecasts.Select(x => new object[] { x.Date, x.TemperatureC, x.TemperatureF, x.Summary??"None" }).ToArray();
+            await JSModule.InvokeVoidAsync("copyButton", (object)res);
         }
     }
 }
