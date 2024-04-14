@@ -10,5 +10,5 @@
 # Startup from Visual Studio
 ![Startup](startup.png)
 
-# Issue(S)
-- Ugly hack in the code because of unfixed bug in Office JS. See [This issue](https://learn.microsoft.com/en-us/answers/questions/1150659/uncaught-typeerror-history-pushstate-is-not-a-func).
+# Issue(s)
+- Ugly hack in the code because of unfixed bug in Office JS. See [this issue](https://learn.microsoft.com/en-us/answers/questions/1150659/uncaught-typeerror-history-pushstate-is-not-a-func).
