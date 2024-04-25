@@ -8,10 +8,10 @@
  */
 
 /**
- * beforeStart(options, extensions): 
- * 
- * Called before Blazor starts. 
- * For example, beforeStart is used to customize the loading process, logging level, and other options specific to the hosting model. 
+ * beforeStart(options, extensions):
+ *
+ * Called before Blazor starts.
+ * For example, beforeStart is used to customize the loading process, logging level, and other options specific to the hosting model.
  * @param  {} wasmoptions
  * @param  {} extensions
  */
@@ -31,7 +31,7 @@ export async function beforeWebAssemblyStart(wasmoptions, extensions) {
 }
 
 /**
- * afterStarted: Called after Blazor is ready to receive calls from JS. 
+ * afterStarted: Called after Blazor is ready to receive calls from JS.
  * For example, afterStarted is used to initialize libraries by making JS interop calls and registering custom elements.
  * The Blazor instance is passed to afterStarted as an argument.
  * @param  {} blazor

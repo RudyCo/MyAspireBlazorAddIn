@@ -12,6 +12,7 @@ namespace MyApp.AddIn.Client.Pages
     {
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
+
         public IJSObjectReference JSModule { get; set; } = default!;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -1,4 +1,4 @@
-﻿namespace MyApp.AddIn.Client.Models
+﻿namespace MyApp.Shared.Models
 {
     public class WeatherForecast
     {

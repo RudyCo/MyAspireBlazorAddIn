@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using MyApp.AddIn.Client.Services;
+using MyApp.Shared.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 

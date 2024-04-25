@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.JSInterop.WebAssembly" Version="8.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\MyApp.Shared\MyApp.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

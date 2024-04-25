@@ -1,8 +1,10 @@
 ﻿@page "/weather"
+@using MyApp.Shared.Models
+@using MyApp.Shared.Services
 @attribute [StreamRendering(true)]
 @attribute [OutputCache(Duration = 5)]
 
-@inject WeatherApiClient WeatherApi
+@inject ClientWeatherService WeatherApi
 
 <PageTitle>Weather</PageTitle>
 

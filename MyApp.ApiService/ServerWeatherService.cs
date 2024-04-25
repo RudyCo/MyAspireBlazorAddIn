@@ -1,12 +1,11 @@
-﻿using MyApp.AddIn.Client.Models;
-using MyApp.AddIn.Client.Services;
+﻿using MyApp.Shared.Models;
+using MyApp.Shared.Services;
 
 namespace MyApp.AddIn;
 
-
 public class ServerWeatherService : IWeatherService
 {
-    public async Task<WeatherForecast[]> GetWeather()
+    public async Task<WeatherForecast[]?> GetWeatherAsync()
     {
         // Short simulated delay for obtaining the data
         await Task.Delay(1000);

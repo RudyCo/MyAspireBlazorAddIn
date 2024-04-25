@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\MyApp.ServiceDefaults\MyApp.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\MyApp.Shared\MyApp.Shared.csproj" />
     <ProjectReference Include="..\MyApp.AddIn.Client\MyApp.AddIn.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.0-preview.6.24214.1" />
   </ItemGroup>
 
 </Project>

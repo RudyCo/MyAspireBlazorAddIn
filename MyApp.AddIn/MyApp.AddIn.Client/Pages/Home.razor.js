@@ -3,9 +3,7 @@
  * Basic function to show how to insert a value into cell A1 on the selected Excel worksheet.
  */
 export function helloButton() {
-
     return Excel.run(context => {
-
         // Insert text 'Hello world!' into cell A1.
         context.workbook.worksheets.getActiveWorksheet().getRange("A1").values = [['Hello world!']];
 

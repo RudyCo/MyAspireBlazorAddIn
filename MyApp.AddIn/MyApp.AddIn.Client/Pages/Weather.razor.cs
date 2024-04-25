@@ -1,31 +1,31 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using MyApp.AddIn.Client.Models;
-using MyApp.AddIn.Client.Services;
+using MyApp.Shared.Models;
+using MyApp.Shared.Services;
 
 namespace MyApp.AddIn.Client.Pages
 {
     public partial class Weather : ComponentBase
     {
-
         [Inject]
         public PersistentComponentState PersistentComponentState { get; set; } = default!;
-
 
         [Inject]
         public IWeatherService WeatherService { get; set; } = default!;
 
         private WeatherForecast[]? forecasts;
         private PersistingComponentStateSubscription persistingSubscription;
+
         protected override async Task OnInitializedAsync()
         {
             persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
 
             if (!PersistentComponentState.TryTakeFromJson<WeatherForecast[]>(nameof(forecasts), out forecasts))
             {
-                forecasts = await WeatherService.GetWeather();
+                forecasts = await WeatherService.GetWeatherAsync();
             }
         }
+
         private Task PersistData()
         {
             PersistentComponentState.PersistAsJson(nameof(forecasts), forecasts);
@@ -33,9 +33,9 @@ namespace MyApp.AddIn.Client.Pages
             return Task.CompletedTask;
         }
 
-
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
+
         public IJSObjectReference JSModule { get; set; } = default!;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

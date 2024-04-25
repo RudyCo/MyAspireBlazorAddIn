@@ -3,8 +3,6 @@
  * Basic function to show how to insert a value into cell A1 on the selected Excel worksheet.
  */
 export function copyButton(forecasts) {
-    console.log(forecasts);
-
     return Excel.run(context => {
         let sheet = context.workbook.worksheets.getActiveWorksheet();
         let expensesTable = sheet.tables.add("A1:D1", true /*hasHeaders*/);
