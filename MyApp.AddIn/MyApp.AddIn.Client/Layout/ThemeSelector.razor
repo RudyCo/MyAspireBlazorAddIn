@@ -1,0 +1,11 @@
+﻿<FluentDesignTheme @bind-Mode="@Mode"
+                   OfficeColor="OfficeColor.Excel"
+                   StorageName="theme" />
+
+<FluentCombobox Items="@(Enum.GetValues<DesignThemeModes>())"
+                @bind-SelectedOption="@Mode" />
+
+@code
+{
+    public DesignThemeModes Mode { get; set; }
+}

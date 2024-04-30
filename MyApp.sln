@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.AddIn", "MyApp.AddIn\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.AddIn.Client", "MyApp.AddIn\MyApp.AddIn.Client\MyApp.AddIn.Client.csproj", "{3E473971-AF9F-46AE-8631-574D696DB4DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Shared", "MyApp.Shared\MyApp.Shared.csproj", "{9660B024-F055-4A7B-A921-B5ACD9A8BDDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Shared", "MyApp.Shared\MyApp.Shared.csproj", "{9660B024-F055-4A7B-A921-B5ACD9A8BDDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

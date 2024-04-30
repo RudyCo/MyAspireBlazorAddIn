@@ -1,3 +1,4 @@
+using Microsoft.FluentUI.AspNetCore.Components;
 using MyApp.AddIn.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddFluentUIComponents();
 
 builder.Services.AddOutputCache();
 

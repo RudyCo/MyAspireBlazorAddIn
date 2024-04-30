@@ -13,6 +13,8 @@
     <ProjectReference Include="..\MyApp.AddIn.Client\MyApp.AddIn.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
     <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.0-preview.6.24214.1" />
+    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.7.1" />
+    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.7.0" />
   </ItemGroup>
 
 </Project>
