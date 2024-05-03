@@ -1,15 +1,11 @@
 @import '/_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css';
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+    --body-font: "Segoe UI Variable", "Segoe UI", sans-serif;
     font-family: var(--body-font);
     font-size: var(--type-ramp-base-font-size);
     line-height: var(--type-ramp-base-line-height);
-    font-weight: var(--font-weight);
-    color: var(--neutral-foreground-rest);
-    background: var(--neutral-fill-layer-rest);
+    margin: 0;
 }
 
 .navmenu-icon {

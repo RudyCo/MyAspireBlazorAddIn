@@ -1,9 +1,11 @@
-﻿<FluentDesignTheme @bind-Mode="@Mode"
-                   OfficeColor="OfficeColor.Excel"
-                   StorageName="theme" />
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentDesignTheme @bind-Mode="@Mode"
+                       OfficeColor="OfficeColor.Excel"
+                       StorageName="theme" />
 
-<FluentCombobox Items="@(Enum.GetValues<DesignThemeModes>())"
-                @bind-SelectedOption="@Mode" />
+    <FluentListbox Items="@(Enum.GetValues<DesignThemeModes>())"
+                   @bind-SelectedOption="@Mode" />
+</FluentStack>
 
 @code
 {

@@ -2,10 +2,8 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
-
-<div role="status" style="padding-bottom: 1em;">
-    Welcome to your new app.
-</div>
-
-<FluentButton OnClick="HelloButton" Appearance="Appearance.Accent">Hello world!</FluentButton>
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentLabel Typo="Typography.H1">Hello, world!</FluentLabel>
+    <FluentLabel>Welcome to your new app.</FluentLabel>
+    <FluentButton OnClick="HelloButton" Appearance="Appearance.Lightweight">Hello world!</FluentButton>
+</FluentStack>

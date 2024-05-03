@@ -2,10 +2,8 @@
 
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
-
-<div role="status" style="padding-bottom: 1em;">
-    Current count: <FluentBadge Appearance="Appearance.Neutral">@currentCount</FluentBadge>
-</div>
-
-<FluentButton Appearance="Appearance.Accent" @onclick="IncrementCount">Click me</FluentButton>
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentLabel Typo="Typography.H1">Counter</FluentLabel>
+    <FluentLabel>Current count: <FluentBadge Appearance="Appearance.Neutral">@currentCount</FluentBadge></FluentLabel>
+    <FluentButton Appearance="Appearance.Lightweight" @onclick="IncrementCount">Click me</FluentButton>
+</FluentStack>

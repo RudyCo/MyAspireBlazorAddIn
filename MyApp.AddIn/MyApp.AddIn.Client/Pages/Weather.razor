@@ -3,24 +3,21 @@
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
-
-<p>This component demonstrates showing data.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <FluentDataGrid Id="weathergrid" Items="@forecasts.AsQueryable()" GridTemplateColumns="1fr 1fr 1fr 2fr" TGridItem="WeatherForecast">
-        <PropertyColumn Title="Date" Property="@(c => c!.Date)" Sortable="true" Align="Align.Start" />
-        <PropertyColumn Title="Temp. (C)" Property="@(c => c!.TemperatureC)" Sortable="true" Align="Align.Center" />
-        <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
-        <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
-    </FluentDataGrid>
-
-    <FluentButton OnClick="CopyButton" Appearance="Appearance.Accent">Copy to Excel</FluentButton>
-}
-
-
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentLabel Typo="Typography.H1">Weather</FluentLabel>
+    <FluentLabel>This component demonstrates showing data.</FluentLabel>
+    @if (forecasts == null)
+    {
+        <FluentLabel Weight="FontWeight.Bold">Loading...</FluentLabel>
+    }
+    else
+    {
+        <FluentDataGrid Id="weathergrid" Items="@forecasts.AsQueryable()" GridTemplateColumns="1fr 1fr 1fr 2fr" TGridItem="WeatherForecast">
+            <PropertyColumn Title="Date" Property="@(c => c!.Date)" Sortable="true" Align="Align.Start" />
+            <PropertyColumn Title="Temp. (C)" Property="@(c => c!.TemperatureC)" Sortable="true" Align="Align.Center" />
+            <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
+            <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
+        </FluentDataGrid>
+    }
+    <FluentButton OnClick="CopyButton" Appearance="Appearance.Lightweight">Copy to Excel</FluentButton>
+</FluentStack>
