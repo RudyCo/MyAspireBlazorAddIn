@@ -18,6 +18,6 @@
             <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
             <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
         </FluentDataGrid>
+        <FluentButton OnClick="CopyButton" Appearance="Appearance.Lightweight">Copy to Excel</FluentButton>
     }
-    <FluentButton OnClick="CopyButton" Appearance="Appearance.Lightweight">Copy to Excel</FluentButton>
 </FluentStack>
