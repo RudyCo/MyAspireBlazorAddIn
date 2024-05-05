@@ -8,7 +8,13 @@
     <FluentLabel>This component demonstrates showing data.</FluentLabel>
     @if (forecasts == null)
     {
-        <FluentLabel Weight="FontWeight.Bold">Loading...</FluentLabel>
+        <FluentCard>
+            <FluentLabel Color="Color.Disabled" Weight="FontWeight.Bold">Loading...</FluentLabel>
+            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
+            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
+            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
+            <FluentSkeleton Style="margin-top: 10px" Height="20px" Width="75px"></FluentSkeleton>
+        </FluentCard>
     }
     else
     {
@@ -18,6 +24,6 @@
             <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
             <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
         </FluentDataGrid>
-        <FluentButton OnClick="CopyButton" Appearance="Appearance.Lightweight">Copy to Excel</FluentButton>
+        <FluentButton OnClick="CopyButton" Appearance="Appearance.Accent">Copy to Excel</FluentButton>
     }
 </FluentStack>
