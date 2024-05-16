@@ -11,4 +11,5 @@
 ![Startup](startup.png)
 
 # Issue(s)
-- Ugly hack in the code because of unfixed bug in Office JS. See [this issue](https://learn.microsoft.com/en-us/answers/questions/1150659/uncaught-typeerror-history-pushstate-is-not-a-func).
+- Use .NET 8 preview. Aspire does not support .NET 9 as of May 2024. See https://github.com/dotnet/aspire/issues/1951 and https://github.com/dotnet/aspire/issues/2186.
+- Ugly hack in the code because of unfixed bug in Office JS. See [this issue](https://learn.microsoft.com/en-us/answers/questions/1150659/uncaught-typeerror-history-pushstate-is-not-a-func).- 
