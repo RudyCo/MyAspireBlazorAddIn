@@ -3,7 +3,10 @@
 <PageTitle>Home</PageTitle>
 
 <FluentStack Orientation="Orientation.Vertical">
-    <FluentLabel Typo="Typography.H1">Hello, world!</FluentLabel>
-    <FluentLabel>Welcome to your new app.</FluentLabel>
-    <FluentButton OnClick="HelloButton" Appearance="Appearance.Accent">Hello world!</FluentButton>
+    <FluentStack Orientation=Orientation.Horizontal>
+        <FluentEmoji Value="@(new Emojis.TravelPlaces.Color.Default.Rocket())" />
+        <FluentLabel Typo="Typography.H1">Hello!</FluentLabel>
+    </FluentStack>
+    <FluentLabel>Welcome to your new Excel Add-in.</FluentLabel>
+    <FluentButton OnClick="HelloButton" Appearance="Appearance.Accent">Say Hello World in Excel!</FluentButton>
 </FluentStack>
