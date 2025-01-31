@@ -1,4 +1,4 @@
-using MyApp.AddIn;
+using MyApp.ApiService;
 using MyApp.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);

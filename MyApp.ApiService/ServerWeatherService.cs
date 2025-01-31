@@ -1,7 +1,7 @@
 ﻿using MyApp.Shared.Models;
 using MyApp.Shared.Services;
 
-namespace MyApp.AddIn;
+namespace MyApp.ApiService;
 
 public class ServerWeatherService : IWeatherService
 {

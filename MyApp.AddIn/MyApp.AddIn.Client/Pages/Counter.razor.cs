@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Components;
 
-namespace MyApp.AddIn.Client.Pages
-{
-    public partial class Counter : ComponentBase
-    {
-        private int currentCount = 0;
+namespace MyApp.AddIn.Client.Pages;
 
-        private void IncrementCount()
-        {
-            currentCount++;
-        }
+public partial class Counter : ComponentBase
+{
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
     }
 }

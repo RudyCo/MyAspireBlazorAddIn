@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <TargetOfficeVersion>15.0</TargetOfficeVersion>
@@ -11,8 +11,8 @@
     <ProjectReference Include="..\..\MyApp.ServiceDefaults\MyApp.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\MyApp.Shared\MyApp.Shared.csproj" />
     <ProjectReference Include="..\MyApp.AddIn.Client\MyApp.AddIn.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
-    <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="9.0.0" />
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.7.2" />
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.7.2" />
   </ItemGroup>
