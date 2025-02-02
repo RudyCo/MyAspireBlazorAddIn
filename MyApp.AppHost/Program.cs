@@ -4,6 +4,7 @@ var apiService = builder.AddProject<Projects.MyApp_ApiService>("apiservice");
 
 builder.AddProject<Projects.MyApp_AddIn>("exceladdin")
     .WithExternalHttpEndpoints()
-    .WithReference(apiService);
+    .WithReference(apiService)
+    .WaitFor(apiService);
 
 builder.Build().Run();

@@ -5,25 +5,21 @@
 
 <FluentStack Orientation="Orientation.Vertical">
     <FluentLabel Typo="Typography.H1">Weather</FluentLabel>
-    <FluentLabel>This component demonstrates showing data.</FluentLabel>
-    @if (forecasts == null)
-    {
-        <FluentCard>
-            <FluentLabel Color="Color.Disabled" Weight="FontWeight.Bold">Loading...</FluentLabel>
-            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
-            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
-            <FluentSkeleton Style="margin-top: 10px" Height="10px"></FluentSkeleton>
-            <FluentSkeleton Style="margin-top: 10px" Height="20px" Width="75px"></FluentSkeleton>
-        </FluentCard>
-    }
-    else
-    {
-        <FluentDataGrid Id="weathergrid" Items="@forecasts.AsQueryable()" GridTemplateColumns="1fr 1fr 1fr 2fr" TGridItem="WeatherForecast">
-            <PropertyColumn Title="Date" Property="@(c => c!.Date)" Sortable="true" Align="Align.Start" />
-            <PropertyColumn Title="Temp. (C)" Property="@(c => c!.TemperatureC)" Sortable="true" Align="Align.Center" />
-            <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
-            <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
-        </FluentDataGrid>
-        <FluentButton OnClick="CopyButton" Appearance="Appearance.Accent">Copy to Excel</FluentButton>
-    }
+
+    <FluentToolbar style="width:100%">
+        <FluentButton OnClick="CopyButton" Disabled=@IsLoading Appearance="Appearance.Accent">Copy to Excel</FluentButton>
+        <FluentButton OnClick="RefreshButton" Disabled=@IsLoading Appearance="Appearance.Stealth">Refresh</FluentButton>
+    </FluentToolbar>
+
+    <FluentDataGrid Id="weathergrid"
+                    Items="@forecasts?.AsQueryable()"
+                    GridTemplateColumns="1fr 1fr 1fr 1fr"
+                    TGridItem="WeatherForecast"
+                    style="width:100%"
+                    Loading=@IsLoading>
+        <PropertyColumn Title="Date" Property="@(c => c!.Date)" Sortable="true" Align="Align.Start" />
+        <PropertyColumn Title="Temp. (C)" Property="@(c => c!.TemperatureC)" Sortable="true" Align="Align.Center" />
+        <PropertyColumn Title="Temp. (F)" Property="@(c => c!.TemperatureF)" Sortable="true" Align="Align.Center" />
+        <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Sortable="true" Align="Align.End" />
+    </FluentDataGrid>
 </FluentStack>

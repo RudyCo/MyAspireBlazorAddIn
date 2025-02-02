@@ -32,7 +32,8 @@ else
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
+app.MapStaticAssets();
+
 app.UseAntiforgery();
 
 app.UseOutputCache();
@@ -41,6 +42,6 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(MyApp.AddIn.Client._Imports).Assembly);
 
-app.MapForwarder("/api/weather", "https+http://apiservice");
+app.MapForwarder("/api/{**catch-all}", "https+http://apiservice");
 
 app.Run();

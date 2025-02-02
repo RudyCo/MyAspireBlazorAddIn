@@ -3,54 +3,55 @@ using Microsoft.JSInterop;
 using MyApp.Shared.Models;
 using MyApp.Shared.Services;
 
-namespace MyApp.AddIn.Client.Pages
+namespace MyApp.AddIn.Client.Pages;
+
+public partial class Weather : ComponentBase
 {
-    public partial class Weather : ComponentBase
+    private WeatherForecast[]? forecasts;
+
+    [Inject]
+    public IWeatherService WeatherService { get; set; } = default!;
+
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; } = default!;
+    public IJSObjectReference JSModule { get; set; } = default!;
+
+    public bool IsLoading
     {
-        [Inject]
-        public PersistentComponentState PersistentComponentState { get; set; } = default!;
-
-        [Inject]
-        public IWeatherService WeatherService { get; set; } = default!;
-
-        private WeatherForecast[]? forecasts;
-        private PersistingComponentStateSubscription persistingSubscription;
-
-        protected override async Task OnInitializedAsync()
+        get
         {
-            persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
-
-            if (!PersistentComponentState.TryTakeFromJson<WeatherForecast[]>(nameof(forecasts), out forecasts))
-            {
-                forecasts = await WeatherService.GetWeatherAsync();
-            }
+            return forecasts is null;
         }
+    }
 
-        private Task PersistData()
+    protected override async Task OnInitializedAsync()
+    {
+        await GetWeatherData();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            PersistentComponentState.PersistAsJson(nameof(forecasts), forecasts);
-
-            return Task.CompletedTask;
+            JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Weather.razor.js");
         }
+    }
 
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; } = default!;
+    private async Task CopyButton()
+    {
+        if (forecasts is null) return;
+        var res = forecasts.Select(x => new object[] { x.Date, x.TemperatureC, x.TemperatureF, x.Summary ?? "None" }).ToArray();
+        await JSModule.InvokeVoidAsync("copyButton", (object)res);
+    }
 
-        public IJSObjectReference JSModule { get; set; } = default!;
+    private async Task RefreshButton()
+    {
+        await GetWeatherData();
+    }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Weather.razor.js");
-            }
-        }
-
-        private async Task CopyButton()
-        {
-            if (forecasts is null) return;
-            var res = forecasts.Select(x => new object[] { x.Date, x.TemperatureC, x.TemperatureF, x.Summary ?? "None" }).ToArray();
-            await JSModule.InvokeVoidAsync("copyButton", (object)res);
-        }
+    private async Task GetWeatherData()
+    {
+        forecasts = null;
+        forecasts = await WeatherService.GetWeatherAsync();
     }
 }
