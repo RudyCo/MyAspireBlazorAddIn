@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # TS - auto-generated JavaScript file
 *.razor.js
+*.module.js
