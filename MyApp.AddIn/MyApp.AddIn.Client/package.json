@@ -3,7 +3,7 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "@types/office-js": "^1.0.377",
+    "@types/office-js": "^1.0.462",
     "eslint": "^9.19.0"
   }
 }

@@ -11,6 +11,11 @@
   <ItemGroup>
     <TypeScriptCompile Remove="Pages\Home.razor.ts" />
     <TypeScriptCompile Remove="Pages\Weather.razor.ts" />
+    <TypeScriptCompile Remove="wwwroot\MyApp.AddIn.Client.lib.module.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\MyApp.AddIn.Client.lib.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
