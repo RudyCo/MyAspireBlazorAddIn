@@ -1,7 +1,7 @@
 # MyAspireBlazorAddIn
 - This sample was created from [.NET Aspire Starter](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app?tabs=visual-studio) and sample from [Blazor Webassembly Excel add-in](https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/excel-blazor-add-in).
 - Blazor Web App Call web API (Weather) [sample app](https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppCallWebApi_Weather) was used to consume data from server API.
-- The default web frontend is kept for reference.
+- TypeScript support.
 
 # Changes
 - Keep only the ```https``` profile.
